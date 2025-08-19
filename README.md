@@ -7,101 +7,94 @@ O objetivo principal é **automatizar cenários de teste** utilizando o framewor
 
 ---
 
-## 📅 Prazo de Entrega
-**Início:** 06/08  
-**Fim:** 20/08
-
----
-
 ## 🔗 URL do Sistema para Testes
 [https://www.automationexercise.com/](https://www.automationexercise.com/)
 
 ---
 
-## 📋 Escopo do Desafio
-Automatizar **no mínimo 5 cenários de teste**, priorizando os fluxos principais e de exceção. Exemplos sugeridos:
+## 📋 Cenários de Teste Automatizados
 
-- Cadastro com sucesso  
-- Cadastro com email/usuário já existente  
-- Login com sucesso  
-- Login com falha  
-- Fluxo completo de compra de uma categoria específica (Women, Men ou Kids), incluindo pagamento  
+Abaixo estão os cenários que foram implementados e estão passando com 100% de sucesso.
 
----
+### Cadastro (`cadastro.cy.js`)
+- `Cadastrar novo usuário com sucesso`
+- `Tentativa de cadastrar com e-mail já cadastrado`
 
-## 🛠 Requisitos Técnicos
-- Utilizar o **padrão Page Object** para manter uma arquitetura de testes organizada  
-- Realizar **validações com `should()`**  
-- Criar **massas de teste** utilizando:
-  - **Fixtures**  
-  - **Faker.js** (fábrica de dados)  
-- Gerar **relatório final** com **Allure Report**  
+### Login (`login.cy.js`)
+- `Realizar login com sucesso`
+- `Tentativa de login com dados inválidos`
+- `Tentativa de login sem informar email`
+- `Tentativa de login sem informar senha`
+
+### Fluxo de Compra (`compra.cy.js`)
+- *(A ser implementado)*
 
 ---
 
-## ✅ Critérios de Avaliação
-1. **Boas práticas na arquitetura dos testes**
-   - Uso do padrão Page Object  
-   - Configuração de `before` e `baseUrl`
-2. **Fluxos de testes**
-3. **Boas práticas no mapeamento de elementos**
-4. **Independência entre casos de teste**
-5. **Nomenclatura clara dos casos de teste**
+## 📂 Estrutura do Projeto
 
----
+A estrutura de pastas foi organizada seguindo o padrão Page Objects para separar as responsabilidades, mantendo os testes limpos e a manutenção centralizada.
 
-## 📦 Estrutura Sugerida do Projeto
 ```plaintext
-📁 cypress
- ├── 📁 e2e
- │   └── 📁 tests
- │       ├── cadastro.cy.js
- │       ├── login.cy.js
- │       └── compra.cy.js
- ├── 📁 fixtures
- │   └── usuario.json
- ├── 📁 support
- │   ├── commands.js
- │   └── 📁 pages
- │       ├── CadastroPage.js
- │       ├── LoginPage.js
- │       └── CompraPage.js
-📁 reports
- └── allure-report
-cypress.config.js
-package.json
-README.md
+CYPRESS_ECOMMERCE/
+├── 📁 allure-report/       <- O relatório HTML final e interativo
+├── 📁 allure-results/      <- Resultados brutos gerados pelos testes
+├── 📁 cypress/
+│   ├── 📁 e2e/
+│   │   ├── 📄 cadastro.cy.js
+│   │   ├── 📄 compra.cy.js
+│   │   └── 📄 login.cy.js
+│   │
+│   ├── 📁 fixtures/
+│   │   └── 📄 usuarios.json
+│   │
+│   └── 📁 support/
+│       ├── 📁 factories/
+│       │   └── 📄 usuarioFactory.js
+│       │
+│       ├── 📁 pageObjects/
+│       │   └── ... (HomePage.js, etc.)
+│       │
+│       ├── 📄 commands.js
+│       └── 📄 e2e.js
+│
+├── 📄 .gitignore
+├── 📄 cypress.config.js
+├── 📄 package.json
+└── 📄 README.md
 ```
-
 ---
 
 ## 🚀 Como Executar o Projeto
 
-### 1️⃣ Clonar o repositório
-```bash
-git clone <url-do-repositorio>
-cd <nome-do-projeto>
-```
+### 1️⃣ Pré-requisitos
+- [Node.js](https://nodejs.org/) instalado.
+- [Java JDK](https://adoptium.net/) (versão 11 ou superior) instalado e com a variável de ambiente `JAVA_HOME` configurada.
 
-### 2️⃣ Instalar as dependências
+### 2️⃣ Instalação
+
 ```bash
+# Clone este repositório
+git clone <url-do-seu-repositorio>
+
+# Navegue até a pasta do projeto
+cd CYPRESS_ECOMMERCE
+
+# Instale todas as dependências
 npm install
 ```
 
-### 3️⃣ Executar os testes
+### 3️⃣ Executando os Testes e Gerando o Relatório
+
+O projeto está configurado com scripts para facilitar a execução.
+
 ```bash
-npx cypress open
-```
-ou em modo headless:
-```bash
-npx cypress run
+# Roda todos os testes em modo headless, gera o relatório
+# e o abre automaticamente no navegador.
+npm run test:report:open
 ```
 
-### 4️⃣ Gerar o relatório Allure
-```bash
-npx allure generate allure-results --clean
-npx allure open
-```
+Para mais opções de execução (como rodar os testes de forma visível), consulte o arquivo `package.json`.
 
 ---
 
