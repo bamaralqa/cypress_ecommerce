@@ -73,14 +73,16 @@ CYPRESS_ECOMMERCE/
 
 ### 2️⃣ Instalação
 
+Primeiro, clone o repositório e instale as dependências do projeto.
+
 ```bash
 # Clone este repositório
-git clone <[url-do-seu-repositorio](https://github.com/bamaralqa/cypress_ecommerce)>
+git clone https://github.com/bamaralqa/cypress_ecommerce.git
 
 # Navegue até a pasta do projeto
-cd CYPRESS_ECOMMERCE
+cd cypress_ecommerce
 
-# Instale todas as dependências
+# Instale todas as dependências necessárias
 npm install
 ```
 
