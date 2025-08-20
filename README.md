@@ -75,7 +75,7 @@ CYPRESS_ECOMMERCE/
 
 ```bash
 # Clone este repositório
-git clone <url-do-seu-repositorio>
+git clone <[url-do-seu-repositorio](https://github.com/bamaralqa/cypress_ecommerce)>
 
 # Navegue até a pasta do projeto
 cd CYPRESS_ECOMMERCE
